@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel fazenda</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #213b03;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #e0e6da;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      position: relative;
+      height: 100px;
+    }
+
+    .logo-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    header img {
+      height: 150px;
+    }
+
+    .icons-header {
+      position: absolute;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .icons-header img {
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .icons-header img:hover {
+      transform: scale(1.2);
+    }
+
+    .search-box {
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: 1rem;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0.5rem;
+    }
+
+    .search-box input {
+      padding: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+
+    nav {
+      background-color: #213b03;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #596d42;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    
+    .carrossel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .carrossel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carrossel img {
+      width: 100%;
+      max-width: 100%;
+      height: 450px;
+      object-fit: cover;
+      flex-shrink: 0;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .seta {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(211, 84, 0, 0.8);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    .seta:hover {
+      background-color: rgba(255, 140, 0, 0.9);
+    }
+
+    .seta-esquerda {
+      left: 10px;
+    }
+
+    .seta-direita {
+      right: 10px;
+    }
+
+    .produtos-destaque {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+
+    .produto-card {
+      background-color: #fff8e7;
+      border: 1px solid #d35400;
+      border-radius: 12px;
+      padding: 1rem;
+      width: 250px;
+      text-align: center;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .produto-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .produto-card h3 {
+      margin: 0.8rem 0 0.4rem;
+      color: #d35400;
+    }
+
+    .produto-card p {
+      font-size: 0.9rem;
+      color: #5c3d26;
+    }
+
+    .produto-card .preco {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #9e654b;
+      font-size: 1.1rem;
+    }
+
+    .tabela-produtos {
+      background-color: #ede7d0;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .tabela-produtos th,
+    .tabela-produtos td {
+      border: 1px solid #ccc;
+      padding: 0.8rem;
+      text-align: left;
+    }
+
+    .tabela-produtos th {
+      background-color: #d35400;
+      color: white;
+    }
+
+    .linha-separadora {
+      height: 4px;
+      background-color: #d35400;
+      width: 100%;
+    }
+
+    footer {
+      background-color: #ede7d0;
+      color: #5c3d26;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1 1 250px;
+    }
+
+    .logo-footer {
+      width: 120px;
+      height: auto;
+    }
+
+    .footer-vertical-text {
+      font-size: 1rem;
+      color: #9e654b;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .footer-social,
+    .footer-contact,
+    .formas-pagamento {
+      flex: 1 1 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .footer-social .social-title,
+    .formas-pagamento p {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .social-separator {
+      border: 1px solid #9e654b;
+      margin: 0;
+      width: 100%;
+    }
+
+    .social {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .social a img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social a:hover img {
+      transform: scale(1.2);
+      filter: brightness(1.4);
+    }
+
+    .footer-contact p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .pagamento-imgs {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .pagamento-imgs img {
+      border-radius: 10px;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #9e654b;
+    }
+
+    form#form-contato {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    form#form-contato input,
+    form#form-contato textarea {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: none;
+    }
+
+    form#form-contato button {
+      background-color: #9e654b;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .footer-left {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-social,
+      .footer-contact,
+      .formas-pagamento {
+        align-items: center;
+      }
+
+      .social {
+        justify-content: center;
+      }
+
+      .carrossel img {
+        height: 200px;
+      }
+    }
+    .preco-quantidade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.preco-quantidade input {
+  width: 60px;
+  padding: 0.3rem;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn-carrinho {
+  margin-top: 0.7rem;
+  padding: 0.5rem;
+  background-color: #21232c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-carrinho:hover {
+  background-color: #e67e22;
+}
+.porque-comprar {
+  padding: 40px 20px;
+  background-color: #e9c590;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.porque-comprar h2 {
+  font-size: 2em;
+  color: #5e412f;
+  margin-bottom: 20px;
+}
+
+.porque-comprar p {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6;
+}
+.titulo-secao {
+  font-size: 2rem;
+  color: #d35400;
+  text-align: center;
+  margin: 2.5rem 0 1rem;
+  font-weight: 700;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulo-secao::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #e67e22;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+ @keyframes fadeout {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="img/logo1.png" alt="Logo Loja">
+    </div>
+    <div class="icons-header">
+      <img src="lupa.png" alt="Pesquisar" onclick="toggleSearch()" title="Pesquisar">
+      <a href="carrinho.html"><img src="carrinho.png" alt="Carrinho" title="Carrinho de Compras"></a>
+    </div>
+    <div class="search-box" id="searchBox">
+      <form>
+        <input type="text" placeholder="Pesquisar...">
+      </form>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="estrutura.html">Estrutura</a>
+    <a href="lazer.html">Lazer</a>
+     <a href="acomodação.html">Acomodação</a>
+      <a href="restaurante.html">Restaurante e Bar</a>
+  </nav>
+
+  <main>
+    <section class="carrossel-container">
+      <div class="carrossel" id="carrossel">
+        <img src="img 1.jpeg" alt="img 1">
+        <img src="img 2.jpeg" alt="img 2">
+        <img src="img 3.jpeg" alt="img 3">
+        <img src="img 4.jpeg" alt="img 4">
+        <img src="img 5.jpeg" alt="img 5">
+      </div>
+      <button class="seta seta-esquerda" onclick="voltarImagem()">&#10094;</button>
+      <button class="seta seta-direita" onclick="avancarImagem()">&#10095;</button>
+    </section>
+
+    <h2 class="titulo-secao">Destaques da Semana</h2>
+     <section class="produtos-destaque">
+  <div class="produto-card">
+    <img src="cimento.jpeg" alt="Cimento Votoran">
+    <h3>Cimento Votoran</h3>
+    <p>Argamassa de alta resistência para sua obra.</p>
+    <div class="preco-quantidade">
+      <span class="preco">R$ 35,90</span>
+      <input type="number" min="1" value="1">
+    </div>
+    <button class="btn-carrinho">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="produto-card">
+    <img src="tijolo.jpeg" alt="Tijolo Baiano">
+    <h3>Tijolo Baiano</h3>
+    <p>Ideal para alvenaria estrutural e vedação.</p>
+    <div class="preco-quantidade">
+      <span class="preco">R$ 1,50</span>
+      <input type="number" min="1" value="1">
+    </div>
+    <button class="btn-carrinho">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="produto-card">
+    <img src="tinta.jpeg" alt="Tinta Coral">
+    <h3>Tinta Acrílica Coral</h3>
+    <p>Alta cobertura e durabilidade.</p>
+    <div class="preco-quantidade">
+      <span class="preco">R$ 89,90</span>
+      <input type="number" min="1" value="1">
+    </div>
+    <button class="btn-carrinho">Adicionar ao Carrinho</button>
+  </div>
+    <div class="produto-card">
+    <img src="areia lavada.jpeg" alt="Areia Lavada">
+    <h3>Areia Lavada</h3>
+    <p>Areia fina ideal para reboco e assentamento.</p>
+    <div class="preco-quantidade">
+      <span class="preco">R$ 90,00/m³</span>
+      <input type="number" min="1" value="1">
+    </div>
+    <button class="btn-carrinho">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="produto-card">
+    <img src="telha.jpeg" alt="Telha Cerâmica">
+    <h3>Telha Cerâmica</h3>
+    <p>Resistência e beleza para sua cobertura.</p>
+    <div class="preco-quantidade">
+      <span class="preco">R$ 3,20</span>
+      <input type="number" min="1" value="1">
+    </div>
+    <button class="btn-carrinho">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="produto-card">
+    <img src="cp.jpeg" alt="Cimento CP-II">
+    <h3>Cimento CP-II</h3>
+    <p>Alta durabilidade e secagem rápida.</p>
+    <div class="preco-quantidade">
+      <span class="preco">R$ 39,90</span>
+      <input type="number" min="1" value="1">
+    </div>
+    <button class="btn-carrinho">Adicionar ao Carrinho</button>
+  </div>
+
+</section>
+
+
+<h2 class="titulo-secao">Tabela de Orçamento/Serviços</h2>
+     <table class="tabela-produtos">
+      <thead>
+        <tr>
+          <th>Serviço</th>
+          <th>Valor (R$)</th>
+          <th>Observações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Entrega até 10 km</td>
+          <td>50,00</td>
+          <td>Pode variar por peso</td>
+        </tr>
+        <tr>
+          <td>Instalação de piso</td>
+          <td>20,00/m²</td>
+          <td>Mínimo de 15m²</td>
+        </tr>
+        <tr>
+          <td>Aplicação de massa corrida</td>
+          <td>18,00/m²</td>
+          <td>Inclui lixa e acabamento</td>
+        </tr>
+        <tr>
+          <td>Pintura interna com tinta acrílica</td>
+          <td>22,00/m²</td>
+          <td>Inclui material e mão de obra</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+  <section class="porque-comprar">
+  <h2>Por que comprar conosco?</h2>
+  <p>
+    Comprar em nossa loja significa investir em qualidade, confiança e atendimento diferenciado. Trabalhamos há anos no mercado de materiais de construção, sempre priorizando a satisfação dos nossos clientes. Oferecemos uma seleção cuidadosa dos melhores produtos, com garantia de procedência e certificação, para que sua obra tenha o resultado que você merece.
+  </p>
+  <p>
+    Além disso, prezamos por um atendimento personalizado, onde nossa equipe está pronta para entender suas necessidades e orientar na escolha dos materiais ideais para cada projeto. Nossa infraestrutura moderna e eficiente garante rapidez no atendimento e entrega, para que você não perca tempo.
+  </p>
+  <p>
+    Também contamos com preços competitivos e condições facilitadas de pagamento, incluindo opções parceladas e descontos exclusivos para clientes frequentes. Nosso compromisso vai além da venda: oferecemos suporte pós-compra para tirar dúvidas e garantir sua total satisfação.
+  </p>
+  <p>
+    Por fim, prezamos pela responsabilidade ambiental e social, buscando fornecedores que adotam práticas sustentáveis e contribuindo para o desenvolvimento da comunidade local. Compre conosco e tenha a certeza de estar fazendo uma escolha segura, consciente e vantajosa para seu projeto.
+  </p>
+</section>
+
+
+  <div class="linha-separadora"></div>
+
+  <footer>
+    <div class="footer-left">
+      <img src="logo+.png" alt="Logo Loja" class="logo-footer">
+      <div class="footer-vertical-text">A base certa para construir o seu futuro.</div>
+    </div>
+
+    <div class="footer-social">
+      <p class="social-title">Nossas Redes:</p>
+      <hr class="social-separator">
+      <div class="social">
+        <a href="https://www.facebook.com" target="_blank"><img src="facebook.png" alt="Facebook" width="35"></a>
+        <a href="https://www.instagram.com" target="_blank"><img src="instagram.png" alt="Instagram" width="40"></a>
+        <a href="https://www.tiktok.com" target="_blank"><img src="tiktok.png" alt="TikTok" width="43"></a>
+        <a href="https://www.youtube.com" target="_blank"><img src="youtube.png" alt="YouTube" width="43"></a>
+      </div>
+    </div>
+
+    <div class="formas-pagamento">
+      <p><strong>Formas de Pagamento:</strong></p>
+      <hr class="social-separator">
+      <div class="pagamento-imgs">
+        <img src="pix.jpeg" alt="Pix" width="35">
+        <img src="visa.jpeg" alt="Cartão de Crédito" width="35">
+        <img src="mastercard.jpeg" alt="Cartão de Débito" width="35">
+      </div>
+    </div>
+
+    <div class="footer-contact">
+      <p><strong>Contato:</strong></p>
+      <hr class="social-separator">
+      <p>Email: contato@estrutura.com</p>
+      <p>Telefone: (11) 99999-9999</p>
+      <form id="form-contato">
+        <input type="text" placeholder="Seu nome" required>
+        <input type="email" placeholder="Seu email" required>
+        <textarea placeholder="Sua mensagem" rows="3" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+
+    <p class="footer-bottom">© 2025 Estrutura+. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function toggleSearch() {
+      const box = document.getElementById("searchBox");
+      box.style.display = box.style.display === "flex" ? "none" : "flex";
+      box.style.flexDirection = "column";
+    }
+
+    let indexAtual = 0;
+    const imagens = document.querySelectorAll('#carrossel img');
+    const totalImagens = imagens.length;
+
+    function atualizarCarrossel() {
+      const carrossel = document.getElementById('carrossel');
+      carrossel.style.transform = `translateX(-${indexAtual * 100}%)`;
+    }
+
+    function avancarImagem() {
+      indexAtual = (indexAtual + 1) % totalImagens;
+      atualizarCarrossel();
+    }
+
+    function voltarImagem() {
+      indexAtual = (indexAtual - 1 + totalImagens) % totalImagens;
+      atualizarCarrossel();
+    }
+
+    setInterval(avancarImagem, 4000);
+     function mostrarConfirmacao(botao) {
+    if (botao.nextElementSibling && botao.nextElementSibling.classList.contains('confirmacao')) {
+      return;
+    }
+
+    const mensagem = document.createElement('div');
+    mensagem.className = 'confirmacao';
+    mensagem.textContent = 'Produto adicionado!';
+    mensagem.style.color = '#27ae60';
+    mensagem.style.fontWeight = 'bold';
+    mensagem.style.marginTop = '0.5rem';
+    mensagem.style.fontSize = '0.9rem';
+    mensagem.style.animation = 'fadeout 2s forwards';
+
+    botao.parentNode.insertBefore(mensagem, botao.nextSibling);
+
+    setTimeout(() => {
+      mensagem.remove();
+    }, 2000);
+  }
+
+  
+  document.querySelectorAll('.btn-carrinho').forEach(botao => {
+    botao.addEventListener('click', () => {
+      mostrarConfirmacao(botao);
+    });
+  });
+  </script>
+
+</body>
+</html>
