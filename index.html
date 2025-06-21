@@ -37,7 +37,7 @@
     }
 
     header img {
-      height: 150px;
+      height: 100px;
     }
 
     .icons-header {
@@ -59,41 +59,42 @@
       transform: scale(1.2);
     }
 
-    .search-box {
-      display: none;
-      position: absolute;
-      top: 110%;
-      right: 1rem;
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 0.5rem;
-    }
+   .menu-btn {
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 11;
+}
 
-    .search-box input {
-      padding: 0.4rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 200px;
-    }
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #e0e6da;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  transition: right 0.3s ease;
+  z-index: 10;
+}
 
-    nav {
-      background-color: #213b03;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-    }
+.menu-lateral a {
+  text-decoration: none;
+  color: #213b03;
+  font-weight: bold;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #596d42;
-    }
+.menu-lateral a:hover {
+  color: #596d42;
+}
 
     main {
       flex: 1;
@@ -127,7 +128,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(211, 84, 0, 0.8);
+      background-color: rgba(35, 68, 16, 0.8);
       color: white;
       border: none;
       font-size: 2rem;
@@ -140,7 +141,7 @@
     }
 
     .seta:hover {
-      background-color: rgba(255, 140, 0, 0.9);
+      background-color: rgba(62, 99, 59, 0.9);
     }
 
     .seta-esquerda {
@@ -151,82 +152,16 @@
       right: 10px;
     }
 
-    .produtos-destaque {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      padding: 1rem 0;
-    }
-
-    .produto-card {
-      background-color: #fff8e7;
-      border: 1px solid #d35400;
-      border-radius: 12px;
-      padding: 1rem;
-      width: 250px;
-      text-align: center;
-      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .produto-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .produto-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .produto-card h3 {
-      margin: 0.8rem 0 0.4rem;
-      color: #d35400;
-    }
-
-    .produto-card p {
-      font-size: 0.9rem;
-      color: #5c3d26;
-    }
-
-    .produto-card .preco {
-      display: block;
-      margin-top: 0.5rem;
-      font-weight: bold;
-      color: #9e654b;
-      font-size: 1.1rem;
-    }
-
-    .tabela-produtos {
-      background-color: #ede7d0;
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-    }
-
-    .tabela-produtos th,
-    .tabela-produtos td {
-      border: 1px solid #ccc;
-      padding: 0.8rem;
-      text-align: left;
-    }
-
-    .tabela-produtos th {
-      background-color: #d35400;
-      color: white;
-    }
 
     .linha-separadora {
       height: 4px;
-      background-color: #d35400;
+      background-color: #926f0f;
       width: 100%;
     }
 
     footer {
       background-color: #ede7d0;
-      color: #5c3d26;
+      color: #416325;
       padding: 2rem;
       display: flex;
       flex-wrap: wrap;
@@ -249,7 +184,7 @@
 
     .footer-vertical-text {
       font-size: 1rem;
-      color: #9e654b;
+      color: #43613f;
       font-style: italic;
       line-height: 1.4;
     }
@@ -272,7 +207,7 @@
     }
 
     .social-separator {
-      border: 1px solid #9e654b;
+      border: 1px solid #926f0f;
       margin: 0;
       width: 100%;
     }
@@ -314,7 +249,7 @@
       text-align: center;
       margin-top: 2rem;
       font-size: 0.85rem;
-      color: #9e654b;
+      color: #926f0f;
     }
 
     form#form-contato {
@@ -332,7 +267,7 @@
     }
 
     form#form-contato button {
-      background-color: #9e654b;
+      background-color: #926f0f;
       color: white;
       border: none;
       padding: 0.5rem;
@@ -361,58 +296,7 @@
         height: 200px;
       }
     }
-    .preco-quantidade {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.preco-quantidade input {
-  width: 60px;
-  padding: 0.3rem;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.btn-carrinho {
-  margin-top: 0.7rem;
-  padding: 0.5rem;
-  background-color: #21232c;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.btn-carrinho:hover {
-  background-color: #e67e22;
-}
-.porque-comprar {
-  padding: 40px 20px;
-  background-color: #e9c590;
-  text-align: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.porque-comprar h2 {
-  font-size: 2em;
-  color: #5e412f;
-  margin-bottom: 20px;
-}
-
-.porque-comprar p {
-  font-size: 1.1em;
-  color: #333;
-  line-height: 1.6;
-}
+    
 .titulo-secao {
   font-size: 2rem;
   color: #d35400;
@@ -443,26 +327,19 @@
 
   <header>
     <div class="logo-container">
-      <img src="img/logo1.png" alt="Logo Loja">
+      <img src="img/logo2.png" alt="Logo Loja">
     </div>
-    <div class="icons-header">
-      <img src="lupa.png" alt="Pesquisar" onclick="toggleSearch()" title="Pesquisar">
-      <a href="carrinho.html"><img src="carrinho.png" alt="Carrinho" title="Carrinho de Compras"></a>
-    </div>
-    <div class="search-box" id="searchBox">
-      <form>
-        <input type="text" placeholder="Pesquisar...">
-      </form>
-    </div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
   </header>
 
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="estrutura.html">Estrutura</a>
-    <a href="lazer.html">Lazer</a>
-     <a href="acomodação.html">Acomodação</a>
-      <a href="restaurante.html">Restaurante e Bar</a>
-  </nav>
+<div id="menu-lateral" class="menu-lateral">
+  <a href="index.html">Início</a>
+  <a href="estrutura.html">Estrutura</a>
+  <a href="lazer.html">Lazer</a>
+  <a href="acomodação.html">Acomodação</a>
+  <a href="restaurante.html">Restaurante e Bar</a>
+</div>
 
   <main>
     <section class="carrossel-container">
@@ -477,133 +354,13 @@
       <button class="seta seta-direita" onclick="avancarImagem()">&#10095;</button>
     </section>
 
-    <h2 class="titulo-secao">Destaques da Semana</h2>
-     <section class="produtos-destaque">
-  <div class="produto-card">
-    <img src="cimento.jpeg" alt="Cimento Votoran">
-    <h3>Cimento Votoran</h3>
-    <p>Argamassa de alta resistência para sua obra.</p>
-    <div class="preco-quantidade">
-      <span class="preco">R$ 35,90</span>
-      <input type="number" min="1" value="1">
-    </div>
-    <button class="btn-carrinho">Adicionar ao Carrinho</button>
-  </div>
-
-  <div class="produto-card">
-    <img src="tijolo.jpeg" alt="Tijolo Baiano">
-    <h3>Tijolo Baiano</h3>
-    <p>Ideal para alvenaria estrutural e vedação.</p>
-    <div class="preco-quantidade">
-      <span class="preco">R$ 1,50</span>
-      <input type="number" min="1" value="1">
-    </div>
-    <button class="btn-carrinho">Adicionar ao Carrinho</button>
-  </div>
-
-  <div class="produto-card">
-    <img src="tinta.jpeg" alt="Tinta Coral">
-    <h3>Tinta Acrílica Coral</h3>
-    <p>Alta cobertura e durabilidade.</p>
-    <div class="preco-quantidade">
-      <span class="preco">R$ 89,90</span>
-      <input type="number" min="1" value="1">
-    </div>
-    <button class="btn-carrinho">Adicionar ao Carrinho</button>
-  </div>
-    <div class="produto-card">
-    <img src="areia lavada.jpeg" alt="Areia Lavada">
-    <h3>Areia Lavada</h3>
-    <p>Areia fina ideal para reboco e assentamento.</p>
-    <div class="preco-quantidade">
-      <span class="preco">R$ 90,00/m³</span>
-      <input type="number" min="1" value="1">
-    </div>
-    <button class="btn-carrinho">Adicionar ao Carrinho</button>
-  </div>
-
-  <div class="produto-card">
-    <img src="telha.jpeg" alt="Telha Cerâmica">
-    <h3>Telha Cerâmica</h3>
-    <p>Resistência e beleza para sua cobertura.</p>
-    <div class="preco-quantidade">
-      <span class="preco">R$ 3,20</span>
-      <input type="number" min="1" value="1">
-    </div>
-    <button class="btn-carrinho">Adicionar ao Carrinho</button>
-  </div>
-
-  <div class="produto-card">
-    <img src="cp.jpeg" alt="Cimento CP-II">
-    <h3>Cimento CP-II</h3>
-    <p>Alta durabilidade e secagem rápida.</p>
-    <div class="preco-quantidade">
-      <span class="preco">R$ 39,90</span>
-      <input type="number" min="1" value="1">
-    </div>
-    <button class="btn-carrinho">Adicionar ao Carrinho</button>
-  </div>
-
-</section>
-
-
-<h2 class="titulo-secao">Tabela de Orçamento/Serviços</h2>
-     <table class="tabela-produtos">
-      <thead>
-        <tr>
-          <th>Serviço</th>
-          <th>Valor (R$)</th>
-          <th>Observações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Entrega até 10 km</td>
-          <td>50,00</td>
-          <td>Pode variar por peso</td>
-        </tr>
-        <tr>
-          <td>Instalação de piso</td>
-          <td>20,00/m²</td>
-          <td>Mínimo de 15m²</td>
-        </tr>
-        <tr>
-          <td>Aplicação de massa corrida</td>
-          <td>18,00/m²</td>
-          <td>Inclui lixa e acabamento</td>
-        </tr>
-        <tr>
-          <td>Pintura interna com tinta acrílica</td>
-          <td>22,00/m²</td>
-          <td>Inclui material e mão de obra</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </main>
-  <section class="porque-comprar">
-  <h2>Por que comprar conosco?</h2>
-  <p>
-    Comprar em nossa loja significa investir em qualidade, confiança e atendimento diferenciado. Trabalhamos há anos no mercado de materiais de construção, sempre priorizando a satisfação dos nossos clientes. Oferecemos uma seleção cuidadosa dos melhores produtos, com garantia de procedência e certificação, para que sua obra tenha o resultado que você merece.
-  </p>
-  <p>
-    Além disso, prezamos por um atendimento personalizado, onde nossa equipe está pronta para entender suas necessidades e orientar na escolha dos materiais ideais para cada projeto. Nossa infraestrutura moderna e eficiente garante rapidez no atendimento e entrega, para que você não perca tempo.
-  </p>
-  <p>
-    Também contamos com preços competitivos e condições facilitadas de pagamento, incluindo opções parceladas e descontos exclusivos para clientes frequentes. Nosso compromisso vai além da venda: oferecemos suporte pós-compra para tirar dúvidas e garantir sua total satisfação.
-  </p>
-  <p>
-    Por fim, prezamos pela responsabilidade ambiental e social, buscando fornecedores que adotam práticas sustentáveis e contribuindo para o desenvolvimento da comunidade local. Compre conosco e tenha a certeza de estar fazendo uma escolha segura, consciente e vantajosa para seu projeto.
-  </p>
-</section>
-
 
   <div class="linha-separadora"></div>
 
   <footer>
     <div class="footer-left">
-      <img src="logo+.png" alt="Logo Loja" class="logo-footer">
-      <div class="footer-vertical-text">A base certa para construir o seu futuro.</div>
+      <img src="/img/logo1.png" alt="Logo Loja" class="logo-footer">
+      <div class="footer-vertical-text">escolhe logo essa frase geovana</div>
     </div>
 
     <div class="footer-social">
@@ -630,7 +387,7 @@
     <div class="footer-contact">
       <p><strong>Contato:</strong></p>
       <hr class="social-separator">
-      <p>Email: contato@estrutura.com</p>
+      <p>Email: arapy@gmail.com</p>
       <p>Telefone: (11) 99999-9999</p>
       <form id="form-contato">
         <input type="text" placeholder="Seu nome" required>
@@ -640,15 +397,19 @@
       </form>
     </div>
 
-    <p class="footer-bottom">© 2025 Estrutura+. Todos os direitos reservados.</p>
+    <p class="footer-bottom">© 2025 Arapy. Todos os direitos reservados.</p>
   </footer>
 
   <script>
-    function toggleSearch() {
-      const box = document.getElementById("searchBox");
-      box.style.display = box.style.display === "flex" ? "none" : "flex";
-      box.style.flexDirection = "column";
-    }
+
+    function toggleMenu() {
+  const menu = document.getElementById('menu-lateral');
+  if (menu.style.right === '0px') {
+    menu.style.right = '-250px';
+  } else {
+    menu.style.right = '0px';
+  }
+}
 
     let indexAtual = 0;
     const imagens = document.querySelectorAll('#carrossel img');
@@ -690,13 +451,6 @@
       mensagem.remove();
     }, 2000);
   }
-
-  
-  document.querySelectorAll('.btn-carrinho').forEach(botao => {
-    botao.addEventListener('click', () => {
-      mostrarConfirmacao(botao);
-    });
-  });
   </script>
 
 </body>
