@@ -443,6 +443,70 @@
     min-width: 100%;
   }
 }
+.info-hotel {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+.card-info {
+  color: #babdb6;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-info .icone {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+
+.card-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-info p {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  color: #9b9e97;
+}
+
+.botao-info {
+  text-decoration: none;
+  background-color: #926f0f;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.botao-info:hover {
+  background-color: #b28216;
+}
+
+@media (max-width: 900px) {
+  .info-hotel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-info {
+    width: 90%;
+    max-width: none;
+  }
+}
+
 
   </style>
 </head>
@@ -522,6 +586,35 @@
         relaxar ou se aventurar, o Arapy é o lugar perfeito para renovar sua energia em meio à natureza.
       </p>
     </section>
+    <section class="aproveite-modelo">
+      <h2>
+        Conheça mais sobre<br>
+        <span class="subtitulo-cursivo">o<span class="arapy-cursivo"> nosso hotel</span></span>
+      </h2>
+     <section class="info-hotel">
+  <div class="card-info">
+    <div class="icone">☆</div>
+    <h3>Lazer</h3>
+    <p>Atividades para todas as idades, como trilhas, tirolesa e piscina natural.</p>
+    <a href="lazer.html" class="botao-info">Conhecer!</a>
+  </div>
+
+  <div class="card-info">
+    <div class="icone">🏘</div>
+    <h3>Estrutura</h3>
+    <p>Chalés confortáveis, espaço kids, áreas de descanso e salão de eventos.</p>
+    <a href="estrutura.html" class="botao-info">Conhecer!</a>
+  </div>
+
+  <div class="card-info">
+    <div class="icone">𓅪</div>
+    <h3>Fazenda</h3>
+    <p>Contato com animais, passeios a cavalo e experiências do campo.</p>
+    <a href="fazenda.html" class="botao-info">Conhecer!</a>
+  </div>
+</section>
+
+
   </main>
     <div class="linha-separadora"></div>
 
@@ -569,7 +662,7 @@
     </footer>
 
   <script>
-    // Menu lateral
+    
     function toggleMenu() {
       const menu = document.getElementById('menu-lateral');
       const overlay = document.getElementById('overlay');
@@ -588,7 +681,7 @@
       document.body.classList.remove('menu-aberto');
     }
 
-    // Carrossel
+   
     document.addEventListener('DOMContentLoaded', () => {
       let indexAtual = 0;
       const carrossel = document.getElementById('carrossel');
@@ -618,7 +711,7 @@
       setInterval(avancarImagem, 4000);
     });
 
-    // Função confirmação exemplo (você pode adaptar)
+   
     function mostrarConfirmacao(botao) {
       if (botao.nextElementSibling && botao.nextElementSibling.classList.contains('confirmacao')) {
         return;
@@ -640,10 +733,10 @@
       }, 2000);
     }
     document.getElementById('form-reserva').addEventListener('submit', function(e) {
-  e.preventDefault(); // evita envio real do formulário por enquanto
+  e.preventDefault(); 
 
   alert('Reserva realizada com sucesso! Entraremos em contato.');
-  this.reset(); // limpa o formulário
+  this.reset(); 
 });
 
   </script>
