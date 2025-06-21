@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hotel fazenda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -59,51 +61,48 @@
       transform: scale(1.2);
     }
 
-  .menu-btn {
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  right: 25.5rem; 
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 12; 
-}
+    .menu-btn {
+      font-size: 2rem;
+      cursor: pointer;
+      position: absolute;
+      right: 25.5rem; 
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 12; 
+    }
 
+    .menu-lateral {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #e0e6da;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+      transition: right 0.3s ease;
+      z-index: 5; 
+    }
 
-.menu-lateral {
-  position: fixed;
-  top: 0;
-  right: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #e0e6da;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
-  transition: right 0.3s ease;
-  z-index: 5; 
-}
+    .menu-lateral a {
+      text-decoration: none;
+      color: #213b03;
+      font-weight: bold;
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
 
-
-.menu-lateral a {
-  text-decoration: none;
-  color: #213b03;
-  font-weight: bold;
-  margin: 1rem 0;
-  font-size: 1.1rem;
-}
-
-.menu-lateral a:hover {
-  color: #596d42;
-}
+    .menu-lateral a:hover {
+      color: #596d42;
+    }
 
     main {
       flex: 1;
       padding: 2rem;
     }
 
-    
     .carrossel-container {
       position: relative;
       overflow: hidden;
@@ -114,11 +113,11 @@
     .carrossel {
       display: flex;
       transition: transform 0.5s ease-in-out;
+      width: 100%;
     }
 
     .carrossel img {
       width: 100%;
-      max-width: 100%;
       height: 450px;
       object-fit: cover;
       flex-shrink: 0;
@@ -153,7 +152,6 @@
     .seta-direita {
       right: 10px;
     }
-
 
     .linha-separadora {
       height: 4px;
@@ -299,52 +297,89 @@
       }
     }
     
-.titulo-secao {
-  font-size: 2rem;
-  color: #d35400;
-  text-align: center;
-  margin: 2.5rem 0 1rem;
-  font-weight: 700;
-  position: relative;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+    .titulo-secao {
+      font-size: 2rem;
+      color: #d35400;
+      text-align: center;
+      margin: 2.5rem 0 1rem;
+      font-weight: 700;
+      position: relative;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-.titulo-secao::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #e67e22;
-  margin: 8px auto 0;
-  border-radius: 2px;
-}
- @keyframes fadeout {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-  body.menu-aberto {
-  overflow: hidden;
-}
+    .titulo-secao::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #e67e22;
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 4;
-  display: none;
-}
+    @keyframes fadeout {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
 
-.overlay.ativo {
-  display: block;
-}
-body.menu-aberto .seta {
-  display: none;
-}
+    body.menu-aberto {
+      overflow: hidden;
+    }
 
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 4;
+      display: none;
+    }
+
+    .overlay.ativo {
+      display: block;
+    }
+
+    body.menu-aberto .seta {
+      display: none;
+    }
+
+    .aproveite-modelo {
+      background-color: transparent;
+      text-align: center;
+      color: #fff;
+      padding: 4rem 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .aproveite-modelo h2 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .subtitulo-cursivo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: #fff4d6;
+      font-weight: normal;
+    }
+
+    .arapy-cursivo {
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .aproveite-modelo p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -354,139 +389,165 @@ body.menu-aberto .seta {
       <img src="img/logo2.png" alt="Logo Loja">
     </div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
   </header>
-<div id="overlay" class="overlay" onclick="fecharMenu()"></div>
 
-<div id="menu-lateral" class="menu-lateral">
-  <a href="index.html">Início</a>
-  <a href="estrutura.html">Estrutura</a>
-  <a href="lazer.html">Lazer</a>
-  <a href="acomodação.html">Acomodação</a>
-  <a href="restaurante.html">Restaurante e Bar</a>
-</div>
+  <div id="overlay" class="overlay" onclick="fecharMenu()"></div>
+
+  <div id="menu-lateral" class="menu-lateral">
+    <a href="index.html">Início</a>
+    <a href="estrutura.html">Estrutura</a>
+    <a href="lazer.html">Lazer</a>
+    <a href="acomodação.html">Acomodação</a>
+    <a href="restaurante.html">Restaurante e Bar</a>
+  </div>
 
   <main>
     <section class="carrossel-container">
       <div class="carrossel" id="carrossel">
-        <img src="img 1.jpeg" alt="img 1">
-        <img src="img 2.jpeg" alt="img 2">
-        <img src="img 3.jpeg" alt="img 3">
-        <img src="img 4.jpeg" alt="img 4">
-        <img src="img 5.jpeg" alt="img 5">
+        <img src="img/img1.jpeg" alt="img 1">
+        <img src="img/img2.jpeg" alt="img 2">
+        <img src="img/img3.jpeg" alt="img 3">
+        <img src="img/img4.jpeg" alt="img 4">
+        <img src="img/img5.jpeg" alt="img 5">
       </div>
-      <button class="seta seta-esquerda" onclick="voltarImagem()">&#10094;</button>
-      <button class="seta seta-direita" onclick="avancarImagem()">&#10095;</button>
+      <button class="seta seta-esquerda">&#10094;</button>
+      <button class="seta seta-direita">&#10095;</button>
     </section>
 
+    <section class="aproveite-modelo">
+      <h2>
+        Aproveite o melhor<br>
+        <span class="subtitulo-cursivo">do <span class="arapy-cursivo">Arapy</span></span>
+      </h2>
+      <p>
+        Mergulhe em uma experiência única no Arapy, um hotel fazenda onde a natureza e a aventura caminham lado a lado.
+        Cercado por paisagens exuberantes, nosso refúgio oferece muito mais que descanso: aqui, você pode se refrescar em
+        uma cachoeira cristalina, desafiar sua coragem no rapel, deslizar com emoção pela tirolesa e sentir a adrenalina
+        do arvorismo em meio à mata nativa.
+      </p>
+      <p>
+        Cada momento no Arapy é um convite à conexão com o verde, ao som da água e à liberdade do ar puro. Seja para
+        relaxar ou se aventurar, o Arapy é o lugar perfeito para renovar sua energia em meio à natureza.
+      </p>
+    </section>
 
-  <div class="linha-separadora"></div>
+    <div class="linha-separadora"></div>
 
-  <footer>
-    <div class="footer-left">
-      <img src="/img/logo1.png" alt="Logo Loja" class="logo-footer">
-      <div class="footer-vertical-text">escolhe logo essa frase geovana</div>
-    </div>
-
-    <div class="footer-social">
-      <p class="social-title">Nossas Redes:</p>
-      <hr class="social-separator">
-      <div class="social">
-        <a href="https://www.facebook.com" target="_blank"><img src="img/facebook.png" alt="Facebook" width="35"></a>
-        <a href="https://www.instagram.com" target="_blank"><img src="img/instagram.png" alt="Instagram" width="40"></a>
-        <a href="https://www.tiktok.com" target="_blank"><img src="img/tiktok.png" alt="TikTok" width="43"></a>
-        <a href="https://www.youtube.com" target="_blank"><img src="img/youtube.png" alt="YouTube" width="43"></a>
+    <footer>
+      <div class="footer-left">
+        <img src="img/logo1.png" alt="Logo Loja" class="logo-footer">
+        <div class="footer-vertical-text">escolhe logo essa frase geovana</div>
       </div>
-    </div>
 
-    <div class="formas-pagamento">
-      <p><strong>Formas de Pagamento:</strong></p>
-      <hr class="social-separator">
-      <div class="pagamento-imgs">
-        <img src="img/pix.jpeg" alt="Pix" width="35">
-        <img src="img/visa.jpeg" alt="Cartão de Crédito" width="35">
-        <img src="img/mastercard.jpeg" alt="Cartão de Débito" width="35">
+      <div class="footer-social">
+        <p class="social-title">Nossas Redes:</p>
+        <hr class="social-separator">
+        <div class="social">
+          <a href="https://www.facebook.com" target="_blank"><img src="img/facebook.png" alt="Facebook" width="35"></a>
+          <a href="https://www.instagram.com" target="_blank"><img src="img/instagram.png" alt="Instagram" width="40"></a>
+          <a href="https://www.tiktok.com" target="_blank"><img src="img/tiktok.png" alt="TikTok" width="43"></a>
+          <a href="https://www.youtube.com" target="_blank"><img src="img/youtube.png" alt="YouTube" width="43"></a>
+        </div>
       </div>
-    </div>
 
-    <div class="footer-contact">
-      <p><strong>Contato:</strong></p>
-      <hr class="social-separator">
-      <p>Email: arapy@gmail.com</p>
-      <p>Telefone: (11) 99999-9999</p>
-      <form id="form-contato">
-        <input type="text" placeholder="Seu nome" required>
-        <input type="email" placeholder="Seu email" required>
-        <textarea placeholder="Sua mensagem" rows="3" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+      <div class="formas-pagamento">
+        <p><strong>Formas de Pagamento:</strong></p>
+        <hr class="social-separator">
+        <div class="pagamento-imgs">
+          <img src="img/pix.jpeg" alt="Pix" width="35">
+          <img src="img/visa.jpeg" alt="Cartão de Crédito" width="35">
+          <img src="img/mastercard.jpeg" alt="Cartão de Débito" width="35">
+        </div>
+      </div>
 
-    <p class="footer-bottom">© 2025 Arapy. Todos os direitos reservados.</p>
-  </footer>
+      <div class="footer-contact">
+        <p><strong>Contato:</strong></p>
+        <hr class="social-separator">
+        <p>Email: arapy@gmail.com</p>
+        <p>Telefone: (11) 99999-9999</p>
+        <form id="form-contato">
+          <input type="text" placeholder="Seu nome" required>
+          <input type="email" placeholder="Seu email" required>
+          <textarea placeholder="Sua mensagem" rows="3" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+
+      <p class="footer-bottom">© 2025 Arapy. Todos os direitos reservados.</p>
+    </footer>
+  </main>
 
   <script>
-    body.classList.toggle('menu-aberto', !menuAberto);
+    // Menu lateral
+    function toggleMenu() {
+      const menu = document.getElementById('menu-lateral');
+      const overlay = document.getElementById('overlay');
+      const body = document.body;
 
-function toggleMenu() {
-  const menu = document.getElementById('menu-lateral');
-  const overlay = document.getElementById('overlay');
-  const body = document.body;
+      const menuAberto = menu.style.right === '0px';
 
-  const menuAberto = menu.style.right === '0px';
+      menu.style.right = menuAberto ? '-250px' : '0px';
+      overlay.classList.toggle('ativo', !menuAberto);
+      body.classList.toggle('menu-aberto', !menuAberto);
+    }
 
-  menu.style.right = menuAberto ? '-250px' : '0px';
-  overlay.classList.toggle('ativo', !menuAberto);
-  body.classList.toggle('menu-aberto', !menuAberto);
-}
+    function fecharMenu() {
+      document.getElementById('menu-lateral').style.right = '-250px';
+      document.getElementById('overlay').classList.remove('ativo');
+      document.body.classList.remove('menu-aberto');
+    }
 
-function fecharMenu() {
-  document.getElementById('menu-lateral').style.right = '-250px';
-  document.getElementById('overlay').classList.remove('ativo');
-  document.body.classList.remove('menu-aberto');
-}
-
-    let indexAtual = 0;
-    const imagens = document.querySelectorAll('#carrossel img');
-    const totalImagens = imagens.length;
-
-    function atualizarCarrossel() {
+    // Carrossel
+    document.addEventListener('DOMContentLoaded', () => {
+      let indexAtual = 0;
       const carrossel = document.getElementById('carrossel');
-      carrossel.style.transform = `translateX(-${indexAtual * 100}%)`;
+      const imagens = carrossel.querySelectorAll('img');
+      const totalImagens = imagens.length;
+
+      const btnEsquerda = document.querySelector('.seta-esquerda');
+      const btnDireita = document.querySelector('.seta-direita');
+
+      function atualizarCarrossel() {
+        carrossel.style.transform = `translateX(-${indexAtual * 100}%)`;
+      }
+
+      function avancarImagem() {
+        indexAtual = (indexAtual + 1) % totalImagens;
+        atualizarCarrossel();
+      }
+
+      function voltarImagem() {
+        indexAtual = (indexAtual - 1 + totalImagens) % totalImagens;
+        atualizarCarrossel();
+      }
+
+      btnEsquerda.addEventListener('click', voltarImagem);
+      btnDireita.addEventListener('click', avancarImagem);
+
+      setInterval(avancarImagem, 4000);
+    });
+
+    // Função confirmação exemplo (você pode adaptar)
+    function mostrarConfirmacao(botao) {
+      if (botao.nextElementSibling && botao.nextElementSibling.classList.contains('confirmacao')) {
+        return;
+      }
+
+      const mensagem = document.createElement('div');
+      mensagem.className = 'confirmacao';
+      mensagem.textContent = 'Produto adicionado!';
+      mensagem.style.color = '#27ae60';
+      mensagem.style.fontWeight = 'bold';
+      mensagem.style.marginTop = '0.5rem';
+      mensagem.style.fontSize = '0.9rem';
+      mensagem.style.animation = 'fadeout 2s forwards';
+
+      botao.parentNode.insertBefore(mensagem, botao.nextSibling);
+
+      setTimeout(() => {
+        mensagem.remove();
+      }, 2000);
     }
-
-    function avancarImagem() {
-      indexAtual = (indexAtual + 1) % totalImagens;
-      atualizarCarrossel();
-    }
-
-    function voltarImagem() {
-      indexAtual = (indexAtual - 1 + totalImagens) % totalImagens;
-      atualizarCarrossel();
-    }
-
-    setInterval(avancarImagem, 4000);
-     function mostrarConfirmacao(botao) {
-    if (botao.nextElementSibling && botao.nextElementSibling.classList.contains('confirmacao')) {
-      return;
-    }
-
-    const mensagem = document.createElement('div');
-    mensagem.className = 'confirmacao';
-    mensagem.textContent = 'Produto adicionado!';
-    mensagem.style.color = '#27ae60';
-    mensagem.style.fontWeight = 'bold';
-    mensagem.style.marginTop = '0.5rem';
-    mensagem.style.fontSize = '0.9rem';
-    mensagem.style.animation = 'fadeout 2s forwards';
-
-    botao.parentNode.insertBefore(mensagem, botao.nextSibling);
-
-    setTimeout(() => {
-      mensagem.remove();
-    }, 2000);
-  }
   </script>
-
 </body>
 </html>
