@@ -429,7 +429,7 @@
   background-color: #b28216;
 }
 
-/* Responsividade para telas pequenas */
+
 @media (max-width: 600px) {
   #form-reserva {
     flex-direction: column;
@@ -504,6 +504,85 @@
   .card-info {
     width: 90%;
     max-width: none;
+  }
+}
+
+.icone-spa {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.titulo-secao-spa {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #926f0f;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+.descricao-secao-spa {
+  font-size: 1.1rem;
+  color: #ffffff;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.cards-spa {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card-spa {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(17, 32, 0, 0.89);
+  padding: 1rem;
+  max-width: 300px;
+  flex: 1;
+}
+
+.imagens-spa {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.imagens-spa img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.titulo-card-spa {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #926f0f;
+  margin: 0.5rem 0;
+}
+
+
+.texto-card-spa {
+  font-size: 0.95rem;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .cards-spa {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-spa {
+    width: 90%;
   }
 }
 
@@ -614,6 +693,42 @@
   </div>
 </section>
 
+<section class="spa-lazer">
+  <div class="icone-spa">⚜</div>
+  <h2 class="titulo-secao-spa">SPA & LAZER</h2>
+  <p class="descricao-secao-spa">
+    Um espaço pensado para seu relaxamento completo. Viva momentos únicos em meio ao verde e ao conforto do campo.
+  </p>
+
+  <div class="cards-spa">
+    <div class="card-spa">
+      <div class="imagens-spa">
+        <img src="img/spa1.jpeg" alt="Spa ao ar livre 1">
+        <img src="img/spa2.jpeg" alt="Spa ao ar livre 2">
+      </div>
+      <h3 class="titulo-card-spa">SPA ao Ar Livre</h3>
+      <p class="texto-card-spa">Relaxe em ambientes naturais com banheiras externas, massagens e tratamentos revigorantes ao ar livre.</p>
+    </div>
+
+    <div class="card-spa">
+      <div class="imagens-spa">
+        <img src="img/nat1.jpeg" alt="Natureza 1">
+        <img src="img/nat2.jpeg" alt="Natureza 2">
+      </div>
+      <h3 class="titulo-card-spa">Natureza</h3>
+      <p class="texto-card-spa">Caminhe por trilhas tranquilas, respire ar puro e aprecie a biodiversidade do nosso hotel fazenda.</p>
+    </div>
+
+    <div class="card-spa">
+      <div class="imagens-spa">
+        <img src="img/cafe1.jpeg" alt="Café da Manhã 1">
+        <img src="img/cafe2.jpeg" alt="Café da Manhã 2">
+      </div>
+      <h3 class="titulo-card-spa">Café da Manhã</h3>
+      <p class="texto-card-spa">Desfrute de um café da manhã artesanal com frutas frescas, pães caseiros e delícias do campo.</p>
+    </div>
+  </div>
+</section>
 
   </main>
     <div class="linha-separadora"></div>
