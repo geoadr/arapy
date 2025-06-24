@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lazer - Hotel Fazenda Arapy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estrutura.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #35340f;
+      color: #ffffff;
+    }
+header {
+      background-color: #e0e6da;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      position: relative;
+      height: 100px;
+    }
+
+    .logo-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    header img {
+      height: 100px;
+    }
+
+    .icons-header {
+      position: absolute;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .icons-header img {
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .icons-header img:hover {
+      transform: scale(1.2);
+    }
+
+    .menu-btn {
+      font-size: 2rem;
+      cursor: pointer;
+      position: absolute;
+      right: 25.5rem; 
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 12; 
+      color: black; 
+    }
+
+    .menu-lateral {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #e0e6da;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+      transition: right 0.3s ease;
+      z-index: 5; 
+    }
+
+    .menu-lateral a {
+      text-decoration: none;
+      color: #213b03;
+      font-weight: bold;
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+
+    .menu-lateral a:hover {
+      color: #596d42;
+    }
+   .banner-estrutura {
+  position: relative;
+  width: 100%;
+  height: 60vh; 
+  overflow: hidden;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+}
+
+
+
+   .img-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+   .texto-banner {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff4d6;
+  max-width: 90%;
+  z-index: 1;
+}
+
+    .texto-banner h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+    .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+}
+.overlay.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .linha-titulo {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 3rem 0 1rem;
+      color: #fff4d6;
+    }
+
+    .emoji {
+      font-size: 7rem;
+    }
+
+    .titulo-duas-linhas {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .conheca {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 2.2rem;
+      text-transform: lowercase;
+      color: #ffffff;
+    }
+
+    .fazenda {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.6rem;
+      color: #f1d69a;
+    }
+
+    .descricao-fazenda {
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 800px;
+      color: #fff4d6;
+    }
+
+    .grid-fotos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .grid-fotos img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .grid-fotos img:hover {
+      transform: scale(1.03);
+    }
+    .linha-separadora {
+      height: 4px;
+      background-color: #c29312;
+      width: 100%;
+    }
+
+    footer {
+      background-color: #ede7d0;
+      color: #416325;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1 1 250px;
+    }
+
+    .logo-footer {
+      width: 120px;
+      height: auto;
+    }
+
+    .footer-vertical-text {
+      font-size: 1rem;
+      color: #43613f;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .footer-social,
+    .footer-contact,
+    .formas-pagamento {
+      flex: 1 1 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .footer-social .social-title,
+    .formas-pagamento p {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .social-separator {
+      border: 1px solid #926f0f;
+      margin: 0;
+      width: 100%;
+    }
+
+    .social {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .social a img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social a:hover img {
+      transform: scale(1.2);
+      filter: brightness(1.4);
+    }
+
+    .footer-contact p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .pagamento-imgs {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .pagamento-imgs img {
+      border-radius: 10px;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #c29312;
+    }
+
+    form#form-contato {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    form#form-contato input,
+    form#form-contato textarea {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: none;
+    }
+
+    form#form-contato button {
+      background-color: #c29312;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .footer-left {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-social,
+      .footer-contact,
+      .formas-pagamento {
+        align-items: center;
+      }
+
+      .social {
+        justify-content: center;
+      }
+
+    }
+  </style>
+</head>
+<body>
+ 
+<header>
+    <div class="logo-container">
+      <img src="img/logo2.png" alt="Logo Loja">
+    </div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <div id="overlay" class="overlay" onclick="fecharMenu()"></div>
+
+  <div id="menu-lateral" class="menu-lateral">
+    <a href="index.html">Início</a>
+    <a href="estrutura.html">Estrutura</a>
+    <a href="lazer.html">Lazer</a>
+    <a href="acomodação.html">Acomodação</a>
+    <a href="restaurante.html">Restaurante e Bar</a>
+  </div>
+  <section class="banner-estrutura">
+    <img src="img/img2.jpeg" alt="Imagem de Lazer" class="img-banner">
+    <div class="texto-banner">
+      <h1>LAZER</h1>
+      <p>Descubra experiências de lazer para toda a família, com diversão, natureza e bem-estar no Hotel Fazenda Arapy.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="intro-fazenda">
+      <div class="linha-titulo">
+        <span class="emoji">✩</span>
+        <div class="titulo-duas-linhas">
+          <span class="conheca">conheça mais</span>
+          <span class="fazenda">sobre nossas atividades!</span>
+        </div>
+      </div>
+      <p class="descricao-fazenda">
+        Diversão garantida em todas as estações! Do campo ao relaxamento, oferecemos atrações para todas as idades, com integração à natureza e muita aventura.
+      </p>
+    </section>
+
+    <section class="intro-fazenda">
+      <div class="linha-titulo">
+        <span class="emoji">ᨒ</span>
+        <div class="titulo-duas-linhas">
+          <span class="conheca">aventura</span>
+          <span class="fazenda">e natureza</span>
+        </div>
+      </div>
+      <p class="descricao-fazenda">
+        Prepare-se para viver emoções ao ar livre com trilhas ecológicas, tirolesa, cavalgadas e muito mais. Perfeito para os amantes da natureza e da adrenalina!
+      </p>
+      <div class="grid-fotos">
+        <img src="img/img2.jpeg" alt="Aventura 1">
+        <img src="img/img3.jpeg" alt="Aventura 2">
+        <img src="img/img4.jpeg" alt="Aventura 3">
+        <img src="img/img2.jpeg" alt="Aventura 4">
+        <img src="img/img3.jpeg" alt="Aventura 5">
+        <img src="img/img4.jpeg" alt="Aventura 6">
+        <img src="img/img2.jpeg" alt="Aventura 7">
+        <img src="img/img3.jpeg" alt="Aventura 8">
+        <img src="img/img4.jpeg" alt="Aventura 9">
+      </div>
+    </section>
+
+    <section class="intro-fazenda">
+      <div class="linha-titulo">
+        <span class="emoji">⚽︎</span>
+        <div class="titulo-duas-linhas">
+          <span class="conheca">espaço kids</span>
+          <span class="fazenda">para crianças</span>
+        </div>
+      </div>
+      <p class="descricao-fazenda">
+        Um espaço lúdico e seguro com brinquedos, atividades monitoradas e natureza ao redor. Diversão para os pequenos enquanto os pais relaxam.
+      </p>
+      <div class="grid-fotos">
+        <img src="img/kids1.jpeg" alt="Kids 1">
+        <img src="img/kids2.jpeg" alt="Kids 2">
+        <img src="img/kids3.jpeg" alt="Kids 3">
+         <img src="img/kids1.jpeg" alt="Kids 4">
+        <img src="img/kids2.jpeg" alt="Kids 5">
+        <img src="img/kids3.jpeg" alt="Kids 6">
+         <img src="img/kids1.jpeg" alt="Kids 7">
+        <img src="img/kids2.jpeg" alt="Kids 8">
+        <img src="img/kids3.jpeg" alt="Kids 9">
+      </div>
+    </section>
+
+    <section class="intro-fazenda">
+      <div class="linha-titulo">
+        <span class="emoji">🛏</span>
+        <div class="titulo-duas-linhas">
+          <span class="conheca">spa</span>
+          <span class="fazenda">e conforto</span>
+        </div>
+      </div>
+      <p class="descricao-fazenda">
+        Desfrute de momentos de paz no nosso espaço de bem-estar com massagens, banhos relaxantes e ambiente tranquilo cercado pelo verde.
+      </p>
+      <div class="grid-fotos">
+        <img src="img/spa1.jpeg" alt="Spa 1">
+        <img src="img/spa2.jpeg" alt="Spa 2">
+        <img src="img/spa3.jpeg" alt="Spa 3">
+        <img src="img/spa1.jpeg" alt="Spa 4">
+        <img src="img/spa2.jpeg" alt="Spa 5">
+        <img src="img/spa3.jpeg" alt="Spa 6">
+        <img src="img/spa1.jpeg" alt="Spa 7">
+        <img src="img/spa2.jpeg" alt="Spa 8">
+        <img src="img/spa3.jpeg" alt="Spa 9">
+      </div>
+    </section>
+  </main>
+ <div class="linha-separadora"></div>
+
+    <footer>
+      <div class="footer-left">
+        <img src="img/logo1.png" alt="Logo Loja" class="logo-footer">
+        <div class="footer-vertical-text">escolhe logo essa frase geovana</div>
+      </div>
+
+      <div class="footer-social">
+        <p class="social-title">Nossas Redes:</p>
+        <hr class="social-separator">
+        <div class="social">
+          <a href="https://www.facebook.com" target="_blank"><img src="img/facebook.png" alt="Facebook" width="35"></a>
+          <a href="https://www.instagram.com" target="_blank"><img src="img/instagram.png" alt="Instagram" width="40"></a>
+          <a href="https://www.tiktok.com" target="_blank"><img src="img/tiktok.png" alt="TikTok" width="43"></a>
+          <a href="https://www.youtube.com" target="_blank"><img src="img/youtube.png" alt="YouTube" width="43"></a>
+        </div>
+      </div>
+
+      <div class="formas-pagamento">
+        <p><strong>Formas de Pagamento:</strong></p>
+        <hr class="social-separator">
+        <div class="pagamento-imgs">
+          <img src="img/pix.jpeg" alt="Pix" width="35">
+          <img src="img/visa.jpeg" alt="Cartão de Crédito" width="35">
+          <img src="img/mastercard.jpeg" alt="Cartão de Débito" width="35">
+        </div>
+      </div>
+
+      <div class="footer-contact">
+        <p><strong>Contato:</strong></p>
+        <hr class="social-separator">
+        <p>Email: arapy@gmail.com</p>
+        <p>Telefone: (11) 99999-9999</p>
+        <form id="form-contato">
+          <input type="text" name="nome" placeholder="Seu nome" required>
+<input type="email" name="email" placeholder="Seu email" required>
+<textarea name="mensagem" placeholder="Sua mensagem" rows="3" required></textarea>
+
+           <button type="submit">Enviar</button>
+        </form>
+      </div>
+
+      <p class="footer-bottom">© 2025 Arapy. Todos os direitos reservados.</p>
+    </footer>
+
+ 
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu-lateral');
+      const overlay = document.getElementById('overlay');
+      const aberto = menu.style.right === '0px';
+      menu.style.right = aberto ? '-250px' : '0px';
+      overlay.classList.toggle('ativo', !aberto);
+    }
+
+    function fecharMenu() {
+      document.getElementById('menu-lateral').style.right = '-250px';
+      document.getElementById('overlay').classList.remove('ativo');
+    }
+  </script>
+</body>
+</html>
