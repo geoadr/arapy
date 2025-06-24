@@ -88,6 +88,22 @@
     .menu-lateral a:hover {
       color: #596d42;
     }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+}
+.overlay.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
 
     main {
       flex: 1;
@@ -658,3 +674,72 @@
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
+/* Responsividade geral para tablets e celulares */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .logo-container {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+
+  .icons-header {
+    position: static;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .menu-btn {
+    right: 1rem;
+    top: 1rem;
+    transform: none;
+    font-size: 1.8rem;
+  }
+
+  .carrossel img {
+    height: 250px;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .aproveite-modelo h2 {
+    font-size: 2rem;
+  }
+
+  .subtitulo-cursivo {
+    font-size: 1.5rem;
+  }
+
+  .reserva-container {
+    padding: 1rem;
+  }
+
+  .info-hotel {
+    padding: 2rem 1rem;
+  }
+
+  .avaliacoes-clientes {
+    padding: 2rem 1rem;
+  }
+
+  .titulo-secao {
+    font-size: 1.6rem;
+  }
+
+  .titulo-secao-spa {
+    font-size: 2rem;
+  }
+
+  .whatsapp-float img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
