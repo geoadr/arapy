@@ -99,7 +99,23 @@
       color: #596d42;
     }
 
-    
+    .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+}
+.overlay.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
     main {
       padding: 2rem;
@@ -420,6 +436,108 @@
   margin-bottom: 1.5rem;
   text-align: center;
 }
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .logo-container {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+
+  .icons-header {
+    position: static;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .menu-btn {
+    right: 1rem;
+    top: 1rem;
+    transform: none;
+    font-size: 1.8rem;
+  }
+
+  .texto-banner h1 {
+    font-size: 2rem;
+  }
+
+  .texto-banner p {
+    font-size: 1rem;
+  }
+
+  .emoji {
+    font-size: 3rem;
+  }
+
+  .conheca {
+    font-size: 1.6rem;
+  }
+
+  .fazenda {
+    font-size: 2rem;
+  }
+
+  .descricao-fazenda {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  .galeria-fazenda h2,
+  .galeria-piscinas h2,
+  .galeria-restaurante h2,
+  .galeria-esporte h2 {
+    font-size: 1.5rem;
+  }
+
+  .grid-fotos {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .grid-fotos img {
+    height: 150px;
+  }
+
+  .intro-fazenda,
+  .intro-piscinas,
+  .intro-restaurante,
+  .intro-esporte {
+    padding: 0 0.5rem;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-social,
+  .footer-contact,
+  .formas-pagamento {
+    align-items: center;
+  }
+
+  .social {
+    justify-content: center;
+  }
+
+  .pagamento-imgs {
+    justify-content: center;
+  }
+
+  form#form-contato {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    margin-top: 1rem;
+  }
+}
 
   </style>
 </head>
@@ -438,8 +556,6 @@
     <a href="index.html">Início</a>
     <a href="estrutura.html">Estrutura</a>
     <a href="lazer.html">Lazer</a>
-    <a href="acomodação.html">Acomodação</a>
-    <a href="restaurante.html">Restaurante e Bar</a>
   </nav>
 <section class="banner-estrutura">
   <img src="img/img1.jpeg" alt="Imagem da Estrutura do Hotel" class="img-banner">
@@ -473,6 +589,9 @@
     <img src="img/fazenda4.jpeg" alt="Fazenda Arapy 4">
     <img src="img/fazenda5.jpeg" alt="Fazenda Arapy 5">
     <img src="img/fazenda6.jpeg" alt="Fazenda Arapy 6">
+    <img src="img/fazenda4.jpeg" alt="Fazenda Arapy 7">
+    <img src="img/fazenda5.jpeg" alt="Fazenda Arapy 8">
+    <img src="img/fazenda6.jpeg" alt="Fazenda Arapy 9">
   </div>
 </section>
 <section class="intro-piscinas">
@@ -496,6 +615,12 @@
       <img src="img/piscina1.jpeg" alt="Piscina 1">
       <img src="img/piscina2.jpeg" alt="Piscina 2">
       <img src="img/piscina3.jpeg" alt="Piscina 3">
+       <img src="img/piscina1.jpeg" alt="Piscina 4">
+      <img src="img/piscina2.jpeg" alt="Piscina 5">
+      <img src="img/piscina3.jpeg" alt="Piscina 6">
+       <img src="img/piscina1.jpeg" alt="Piscina 7">
+      <img src="img/piscina2.jpeg" alt="Piscina 8">
+      <img src="img/piscina3.jpeg" alt="Piscina 9">
     </div>
   </section>
 </section>
@@ -520,6 +645,12 @@
       <img src="img/rest1.jpeg" alt="Restaurante 1">
       <img src="img/rest2.jpeg" alt="Restaurante 2">
       <img src="img/rest3.jpeg" alt="Restaurante 3">
+       <img src="img/rest1.jpeg" alt="Restaurante 4">
+      <img src="img/rest2.jpeg" alt="Restaurante 5">
+      <img src="img/rest3.jpeg" alt="Restaurante 6">
+       <img src="img/rest1.jpeg" alt="Restaurante 7">
+      <img src="img/rest2.jpeg" alt="Restaurante 8">
+      <img src="img/rest3.jpeg" alt="Restaurante 9">
     </div>
   </section>
 </section>
@@ -544,6 +675,12 @@
       <img src="img/esp1.jpeg" alt="Quadra1">
       <img src="img/esp2.jpeg" alt="Quadra2">
       <img src="img/esp3.jpeg" alt="Quadra3">
+         <img src="img/esp1.jpeg" alt="Quadra4">
+      <img src="img/esp2.jpeg" alt="Quadra5">
+      <img src="img/esp3.jpeg" alt="Quadra6">
+         <img src="img/esp1.jpeg" alt="Quadra7">
+      <img src="img/esp2.jpeg" alt="Quadra8">
+      <img src="img/esp3.jpeg" alt="Quadra9">
     </div>
   </section>
 </section>
@@ -554,7 +691,7 @@
 <footer>
       <div class="footer-left">
         <img src="img/logo1.png" alt="Logo Loja" class="logo-footer">
-        <div class="footer-vertical-text">escolhe logo essa frase geovana</div>
+        <div class="footer-vertical-text">onde o verde encontra a aventura</div>
       </div>
 
       <div class="footer-social">
