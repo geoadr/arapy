@@ -21,30 +21,56 @@
 
     header {
       background-color: #e0e6da;
-      height: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0.5rem 1rem;
       position: relative;
+      height: 100px;
     }
 
     .logo-container {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 1;
     }
 
     header img {
       height: 100px;
     }
 
-    .menu-btn {
+    .icons-header {
       position: absolute;
-      right: 2rem;
-      font-size: 2rem;
-      cursor: pointer;
-      color: #213b03;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
+
+    .icons-header img {
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .icons-header img:hover {
+      transform: scale(1.2);
+    }
+
+ .menu-btn {
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  right: 25.5rem; 
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 12;
+  color: #000; 
+}
+
+
 
     .menu-lateral {
       position: fixed;
@@ -53,19 +79,19 @@
       width: 250px;
       height: 100%;
       background-color: #e0e6da;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
       padding: 2rem 1rem;
       transition: right 0.3s ease;
-      z-index: 100;
+      z-index: 5; 
     }
 
     .menu-lateral a {
       text-decoration: none;
       color: #213b03;
-      margin: 1rem 0;
       font-weight: bold;
+      margin: 1rem 0;
       font-size: 1.1rem;
     }
 
@@ -73,20 +99,7 @@
       color: #596d42;
     }
 
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.4);
-      display: none;
-      z-index: 50;
-    }
-
-    .overlay.ativo {
-      display: block;
-    }
+    
 
     main {
       padding: 2rem;
@@ -320,6 +333,93 @@
   color: #f1d69a;
   margin-top: -0.4rem; 
 }
+.galeria-fazenda {
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.galeria-fazenda h2 {
+  font-size: 2rem;
+  font-family: 'Cinzel', serif;
+  color: #f1d69a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.grid-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.grid-fotos img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.grid-fotos img:hover {
+  transform: scale(1.03);
+}
+.intro-piscinas {
+  margin-top: 4rem;
+  color: #fff4d6;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.galeria-piscinas {
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+}
+
+.galeria-piscinas h2 {
+  font-size: 2rem;
+  font-family: 'Cinzel', serif;
+  color: #f1d69a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.intro-restaurante {
+  margin-top: 4rem;
+  color: #fff4d6;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.galeria-restaurante {
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+}
+
+.galeria-restaurante h2 {
+  font-size: 2rem;
+  font-family: 'Cinzel', serif;
+  color: #f1d69a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.intro-esporte {
+  margin-top: 4rem;
+  color: #fff4d6;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.galeria-esporte {
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+}
+
+.galeria-esporte h2 {
+  font-size: 2rem;
+  font-family: 'Cinzel', serif;
+  color: #f1d69a;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
 
   </style>
 </head>
@@ -327,7 +427,7 @@
 
   <header>
     <div class="logo-container">
-      <img src="img/logo2.png" alt="Logo Arapy">
+      <img src="img/logo2.png" alt="Logo Loja">
     </div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
   </header>
@@ -363,6 +463,89 @@
     Nossos espaços foram pensados para o conforto, lazer e conexão com a vida simples.<br>
     Sinta o encanto da vida no interior com o toque de sofisticação que só o Arapy tem.
   </p>
+</section>
+<section class="galeria-fazenda">
+  <h2>Álbum da Fazenda</h2>
+  <div class="grid-fotos">
+    <img src="img/fazenda1.jpeg" alt="Fazenda Arapy 1">
+    <img src="img/fazenda2.jpeg" alt="Fazenda Arapy 2">
+    <img src="img/fazenda3.jpeg" alt="Fazenda Arapy 3">
+    <img src="img/fazenda4.jpeg" alt="Fazenda Arapy 4">
+    <img src="img/fazenda5.jpeg" alt="Fazenda Arapy 5">
+    <img src="img/fazenda6.jpeg" alt="Fazenda Arapy 6">
+  </div>
+</section>
+<section class="intro-piscinas">
+  <div class="linha-titulo">
+    <span class="emoji">☼</span>
+    <div class="titulo-duas-linhas">
+      <span class="conheca">piscinas</span><br>
+      <span class="fazenda">aquecida e externas</span>
+    </div>
+  </div>
+  <p class="descricao-fazenda">
+    Relaxe em nossas piscinas rodeadas pela paisagem natural e conforto do campo.<br>
+    Contamos com uma piscina aquecida perfeita para os dias mais frios e<br>
+    opções externas ideais para se refrescar ao sol ou curtir com a família.<br>
+    Um verdadeiro convite ao descanso com vista para o verde do cerrado.
+  </p>
+
+  <section class="galeria-piscinas">
+    <h2>Galeria das Piscinas</h2>
+    <div class="grid-fotos">
+      <img src="img/piscina1.jpeg" alt="Piscina 1">
+      <img src="img/piscina2.jpeg" alt="Piscina 2">
+      <img src="img/piscina3.jpeg" alt="Piscina 3">
+    </div>
+  </section>
+</section>
+<section class="intro-restaurante">
+  <div class="linha-titulo">
+    <span class="emoji">𓌉◯𓇋</span>
+    <div class="titulo-duas-linhas">
+      <span class="conheca">restaurante</span><br>
+      <span class="fazenda">bar e refeições</span>
+    </div>
+  </div>
+  <p class="descricao-fazenda">
+    Sabores que encantam em cada refeição no restaurante Arapy.<br>
+    Pratos caseiros feitos com ingredientes frescos e regionais.<br>
+    Desfrute de um ambiente acolhedor, com bar completo e vista encantadora.<br>
+    Ideal para começar o dia com um café farto ou brindar ao pôr do sol.
+  </p>
+
+  <section class="galeria-restaurante">
+    <h2>Galeria do Restaurante</h2>
+    <div class="grid-fotos">
+      <img src="img/rest1.jpeg" alt="Restaurante 1">
+      <img src="img/rest2.jpeg" alt="Restaurante 2">
+      <img src="img/rest3.jpeg" alt="Restaurante 3">
+    </div>
+  </section>
+</section>
+<section class="intro-esporte">
+  <div class="linha-titulo">
+    <span class="emoji">🏳</span>
+    <div class="titulo-duas-linhas">
+      <span class="conheca">quadras</span><br>
+      <span class="fazenda">e opções de esporte</span>
+    </div>
+  </div>
+  <p class="descricao-fazenda">
+    Mantenha-se ativo com nossas opções esportivas ao ar livre.<br>
+    O Hotel Fazenda Arapy oferece quadras para diversas modalidades,<br>
+    além de espaços para caminhadas, futebol, vôlei e atividades em grupo.<br>
+    Diversão, saúde e energia para todas as idades!
+  </p>
+
+  <section class="galeria-esporte">
+    <h2>Galeria de Esportes</h2>
+    <div class="grid-fotos">
+      <img src="img/esp1.jpeg" alt="Quadra1">
+      <img src="img/esp2.jpeg" alt="Quadra2">
+      <img src="img/esp3.jpeg" alt="Quadra3">
+    </div>
+  </section>
 </section>
 
 
