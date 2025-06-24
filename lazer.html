@@ -358,6 +358,113 @@ header {
       }
 
     }
+    @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .logo-container {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+
+  .icons-header {
+    position: static;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .menu-btn {
+    right: 1rem;
+    top: 1rem;
+    transform: none;
+    font-size: 1.8rem;
+  }
+
+  .banner-estrutura {
+    height: auto;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .texto-banner {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .texto-banner h1 {
+    font-size: 2rem;
+  }
+
+  .emoji {
+    font-size: 3rem;
+  }
+
+  .conheca {
+    font-size: 1.4rem;
+  }
+
+  .fazenda {
+    font-size: 2rem;
+  }
+
+  .descricao-fazenda {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .linha-titulo {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .grid-fotos {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .grid-fotos img {
+    height: 150px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-social,
+  .footer-contact,
+  .formas-pagamento {
+    align-items: center;
+    width: 100%;
+  }
+
+  .social {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pagamento-imgs {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  form#form-contato {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .footer-bottom {
+    margin-top: 1rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -375,8 +482,6 @@ header {
     <a href="index.html">Início</a>
     <a href="estrutura.html">Estrutura</a>
     <a href="lazer.html">Lazer</a>
-    <a href="acomodação.html">Acomodação</a>
-    <a href="restaurante.html">Restaurante e Bar</a>
   </div>
   <section class="banner-estrutura">
     <img src="img/img2.jpeg" alt="Imagem de Lazer" class="img-banner">
@@ -477,7 +582,7 @@ header {
     <footer>
       <div class="footer-left">
         <img src="img/logo1.png" alt="Logo Loja" class="logo-footer">
-        <div class="footer-vertical-text">escolhe logo essa frase geovana</div>
+        <div class="footer-vertical-text">onde o verde encontra a aventura</div>
       </div>
 
       <div class="footer-social">
